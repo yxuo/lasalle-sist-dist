@@ -8,6 +8,7 @@
   },
   "scripts": {
     "start": "node src/main.js",
+    "dev": "webpack --watch",
     "test": "test"
   },
   "repository": {
@@ -26,6 +27,13 @@
   },
   "homepage": "https://github.com/yxuo/lasalle-sistemas-distribuidos#readme",
   "dependencies": {
+    "express": "^4.19.2",
+    "fastify": "^4.26.2",
+    "fastify-static": "^4.7.0",
     "mysql2": "^3.9.4"
+  },
+  "devDependencies": {
+    "webpack": "^5.91.0",
+    "webpack-cli": "^5.1.4"
   }
 }
