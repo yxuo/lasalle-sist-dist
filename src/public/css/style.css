@@ -36,11 +36,25 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.4rem;
+    gap: 1.5rem;
     padding: calc(var(--padding) + .5rem);
     box-shadow: var(--box-shadow);
     border: var(--border);
     border-radius: var(--border-radius);
+}
+
+.table__inputs__box {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+.input__table {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
 }
 
 .input__box {
@@ -49,7 +63,42 @@ body {
     width: 250px;
     gap: 0.5rem;
 }
-.input__search{
+
+.key__box{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.label__box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+input[type="number"] {
+    width: 100px;
+    padding: 0.5rem;
+    box-shadow: var(--box-shadow);
+    border: var(--border);
+    border-radius: var(--border-radius);
+}
+
+select {
+    width: 100px;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+}
+
+select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.input__search {
     width: 100%;
     box-shadow: var(--box-shadow);
     border: var(--border);

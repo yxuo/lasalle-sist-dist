@@ -1,8 +1,7 @@
 const mysql = require('mysql2/promise')
-// import mysql from '../../node_modules/mysql2/promise';
-let _connection;
 
-mysql.createConnection({
+let _connection;
+await mysql.createConnection({
   host: process.env.DB_HOST || 'localhost',
   user: process.env.DB_USER || 'root',
   password: process.env.DB_PASSWORD || 'password',
@@ -20,4 +19,4 @@ mysql.createConnection({
 /**
  * @type {mysql.Connection}
  */
-export const connection = _connection;
+// export const connection = _connection;

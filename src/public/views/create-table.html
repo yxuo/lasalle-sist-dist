@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body>
+    <main class="container">
+        <h1>Criação de Tabelas</h1>
+        <div class="input__box">
+            <span>Banco de Dados</span>
+            <input class="input__search" type="search" id="banco-dados">
+        </div>
+        <div class="input__box">
+            <span>Nome</span>
+            <input class="input__search" type="search" id="nome-table">
+        </div>
+        <div class="input__box">
+            <span>Campos</span>
+            <input class="input__search" type="number" id="campos-table" value="0">
+        </div>
+        <hr>
+        <div class="input__table" id="estrutura-dinamica"></div>
+        <button id="criar-banco-btn">Criar banco de dados</button>
+    </main>
+    <script type="module" src="../controllers/create-table.js"></script>
+</body>
+
+</html>

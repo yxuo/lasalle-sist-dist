@@ -27,10 +27,12 @@
   },
   "homepage": "https://github.com/yxuo/lasalle-sistemas-distribuidos#readme",
   "dependencies": {
+    "@fastify/static": "^7.0.3",
     "express": "^4.19.2",
     "fastify": "^4.26.2",
     "fastify-static": "^4.7.0",
-    "mysql2": "^3.9.4"
+    "mysql2": "^3.9.4",
+    "webpack-dev-server": "^5.0.4"
   },
   "devDependencies": {
     "webpack": "^5.91.0",
