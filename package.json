@@ -1,0 +1,28 @@
+{
+  "name": "npm",
+  "version": "1.0.0",
+  "description": "Lasalle Sistemas Distribuídos",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "start",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yxuo/lasalle-sistemas-distribuidos.git"
+  },
+  "keywords": [
+    "lasalle",
+    "sistemas",
+    "distribuidos"
+  ],
+  "author": "Raphael Rivas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yxuo/lasalle-sistemas-distribuidos/issues"
+  },
+  "homepage": "https://github.com/yxuo/lasalle-sistemas-distribuidos#readme"
+}
