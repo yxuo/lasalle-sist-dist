@@ -114,28 +114,29 @@ fastify.get('/api/table/structure/:database/:table', async (request, reply) => {
 });
 
 fastify.post('/api/table/create/:database/:table', async (request, reply) => {
-
   /**
    * @type {{
    * fields: {
-   *  key: boolean,
+   *  isPrimaryKey: boolean,
    *  nome: string,
    *  type: string,
    *  size: number,
    * }[]
    * }}
-   */
-  const params = request.body;
+  */
+  const body = typeof request.body === 'string' ? JSON.parse(request.body) : request.body;
   const tableName = request.params.table;
   const database = request.params.database;
-  const fields = params.fields;
+  const fields = body.fields;
+  console.log('\n\n BODY', typeof body, body)
+  console.log('\n\n FIELDS', typeof fields, fields)
   /** @type string */
   const queryFields = fields.reduce((l, i) => {
     let fieldStr = `${i.nome} ${i.type}`;
     if (i.size > 0) {
       fieldStr += `(${i.size})`;
     }
-    if (i.key === true) {
+    if (i.isPrimaryKey === true) {
       fieldStr += ' PRIMARY KEY'
     }
     return [...l, fieldStr];
