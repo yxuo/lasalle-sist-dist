@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body>
+    <main class="container">
+        <h1>Inserir Registro</h1>
+        <div class="input__box">
+            <span>Banco de Dados</span>
+            <select class="input__search" id="banco-dados">
+            </select>
+        </div>
+        <div class="input__box">
+            <span>Tabela</span>
+            <select class="input__search" id="nome-table">
+            </select>
+        </div>
+        <h3>Campos</h3>
+        <div id="table-fields" class="input__box">
+        <p class="table-field-container">
+            <label for="field-1">Field 1</label> <br>
+            <input type="text" name="" id="field-1" class="input__search">
+
+            <input type="checkbox" id="insert-field-1" name="nulo" value="insert" checked>
+            <label for="insert-field-1">Inserir</label>
+            <input type="checkbox" id="null-field-1" name="inserir" value="null">
+            <label for="null-field-1">Nulo</label>
+
+        </p>
+        <p class="table-field-container">
+            <label for="field-2">Field 2</label> <br>
+            <input type="numebr" name="" id="field-" class="input__search">
+
+        </p>
+        </div>
+        <button id="inserir-registro-btn">Inserir</button>
+    </main>
+    <script type="module" src="../controllers/insert-table.js"></script>
+</body>
+
+</html>

@@ -38,14 +38,16 @@ fastify.register(require('@fastify/static'), {
   prefix: '/',
 });
 
+// #region API
+
 fastify.post('/api/table/insert/:database/:table', async (request, reply) => {
   const database = request.params.database;
   const table = request.params.table;
   /**
    * @type {Record<string, (string | number | boolean | Date)>}
    */
-  const fields = request.body;
-  console.log("Fields", fields)
+  const body = typeof request.body === 'string' ? JSON.parse(request.body) : request.body;
+  const fields = body;
   if (fields === undefined || Object.keys(fields).length === 0) {
     reply.status(200).send({
       statusCode: 500,
@@ -54,11 +56,13 @@ fastify.post('/api/table/insert/:database/:table', async (request, reply) => {
     });
   }
 
-
-  const values = Object.values(fields).reduce((l, i) => [...l, typeof i === 'number' ? `${i}` : `'${i}'`], []);
-  const query = `INSERT INTO ${database}.${table} (${Object.keys(fields)}) ` +
-    `VALUES (${values})`;
+  
+  const columns = Object.keys(fields);
+  const values = Object.values(fields).map(i => typeof i === 'string' ? `'${i}'` : `${i}`);
+  
+  const query = `INSERT INTO ${database}.${table} (${columns}) VALUES (${values})`;
   console.log('query: ', query)
+  
   const [queryResult,] = await connection.query(query);
   reply.status(200).send({
     statusCode: 200,
@@ -66,7 +70,16 @@ fastify.post('/api/table/insert/:database/:table', async (request, reply) => {
     table,
     result: queryResult
   });
+});
 
+fastify.get('/api/table/list/:database', async (request, reply) => {
+  const database = request.params.database;
+  const [queryResult,] = (await connection.query(`SHOW TABLES IN ${database}`))
+  const queryResultFiltered = queryResult.map(i => Object.values(i)[0]);
+  reply.status(200).send({
+    statusCode: 200,
+    result: queryResultFiltered,
+  });
 });
 
 fastify.get('/api/table/list/:database/:table', async (request, reply) => {
@@ -150,19 +163,30 @@ fastify.post('/api/table/create/:database/:table', async (request, reply) => {
   });
 });
 
-fastify.get('/create-table', (request, reply) => {
-  reply.sendFile('views/create-table.html')
-});
+// #endregion
+
+// #region App
 
 fastify.get('/', (req, reply) => {
   reply.sendFile('views/create-db.html')
 });
 
+fastify.get('/create-table', (request, reply) => {
+  reply.sendFile('views/create-table.html')
+});
+
+fastify.get('/insert-table', (request, reply) => {
+  reply.sendFile('views/insert-table.html')
+});
+
 const start = () => {
   try {
-    fastify.listen({ port: 3000 })
+    fastify.listen({ port: 3002 })
   } catch (err) {
     fastify.log.error(err)
   }
 }
+
+// #endregion
+
 start()

@@ -1,4 +1,4 @@
-const url = "http://localhost:3000"
+const url = "http://localhost:3002"
 async function criarBanco() {
   const nomeBancoInput = document.getElementById('nome-banco').value;
   const response = await fetch(`${url}/api/db/create/${nomeBancoInput}`);

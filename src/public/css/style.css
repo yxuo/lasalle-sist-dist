@@ -105,3 +105,12 @@ select:focus {
     outline: none;
     padding: 1rem;
 }
+
+.insert-label {
+    /* margin-top: 5px; */
+}
+
+.insert-check {
+    margin-top: 5px;
+    margin-right: 5px;
+}

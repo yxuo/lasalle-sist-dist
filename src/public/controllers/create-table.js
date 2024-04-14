@@ -1,4 +1,4 @@
-const url = "http://localhost:3000";
+const url = "http://localhost:3002";
 
 document.addEventListener('DOMContentLoaded', async () => {
     const inputCampos = document.getElementById('campos-table');
@@ -120,7 +120,7 @@ async function createTable() {
     }
     const bancoDados = document.getElementById('banco-dados').value;
     const nomeTabela = document.getElementById('nome-table').value;
- 
+
     const body = {
         fields: fields,
     }
