@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     bancoDados.addEventListener('change', async () => { await getTableList(); })
 
     const tabela = document.getElementById('nome-table');
-    tabela.addEventListener('change', async () => { await getTableStructure(); })
+    tabela.addEventListener('change', async () => { await getTableItems(); })
 
     const inserirBtn = document.getElementById('inserir-registro-btn');
     inserirBtn.addEventListener('click', async () => { await insertItem(); })
@@ -83,7 +83,7 @@ async function getDbList() {
     }
 
     await getTableList();
-    await getTableStructure();
+    await getTableItems();
 }
 
 async function getTableList() {
@@ -118,7 +118,7 @@ async function getTableList() {
         </p>
     </div>
  */
-async function getTableStructure() {
+async function getTableItems() {
     const database = document.getElementById('banco-dados').value;
     const table = document.getElementById('nome-table').value;
     const tableFields = document.getElementById('table-fields');
@@ -226,10 +226,10 @@ async function insertItem() {
 
         const fieldName = field.querySelector('.field-name').innerText;
         const fieldContent = field.querySelector('.field-content');
-        
+
         /** @type { 'number' | 'text' } */
         const fieldType = fieldContent.getAttribute('fieldType');
-        
+
         /** @type { string | number } } */
         let fieldValue = null;
         if (fieldType === 'number') {

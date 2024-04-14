@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body>
+    <main class="container">
+        <h1>Listar Registro</h1>
+        <div class="input__box">
+            <span>Banco de Dados</span>
+            <select class="input__search" id="banco-dados">
+            </select>
+        </div>
+        <div class="input__box">
+            <span>Tabela</span>
+            <select class="input__search" id="nome-table">
+            </select>
+        </div>
+        <h3>Resultado</h3>
+        <table id="table-result"></table>
+        <i id="no-results" class="hidden">Sem resultados</i>
+    </main>
+    <script type="module" src="../controllers/list-table.js"></script>
+</body>
+
+</html>

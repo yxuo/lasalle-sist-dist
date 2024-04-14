@@ -179,6 +179,10 @@ fastify.get('/insert-table', (request, reply) => {
   reply.sendFile('views/insert-table.html')
 });
 
+fastify.get('/list-table', (request, reply) => {
+  reply.sendFile('views/list-table.html')
+});
+
 const start = () => {
   try {
     fastify.listen({ port: 3002 })

@@ -114,3 +114,27 @@ select:focus {
     margin-top: 5px;
     margin-right: 5px;
 }
+
+#table-result {
+    /* margin-left: 0px;
+    margin-right: auto; */
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th, td {
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+table, th, td{
+    border: 1px solid;
+}
+
+.hidden {
+    display: none;
+}
