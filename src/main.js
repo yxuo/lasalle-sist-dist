@@ -1,7 +1,8 @@
 // ESM
 const fs = require("fs")
 const Fastify = require('fastify');
-
+const cors = require("@fastify/cors");
+const static = require('@fastify/static');
 const fastify = Fastify({
   logger: true
 });
@@ -33,9 +34,13 @@ mysql.createConnection({
 
 const src = __dirname;
 
-fastify.register(require('@fastify/static'), {
+fastify.register(static, {
   root: src + '/public/',
   prefix: '/',
+});
+
+fastify.register(cors, {
+  origin: true
 });
 
 // #region API
@@ -114,8 +119,17 @@ fastify.get('/api/db/create/:database', async (request, reply) => {
 });
 
 fastify.get('/api/table/structure/:database/:table', async (request, reply) => {
+  console.log('[structure table]')
   const database = request.params.database;
   const table = request.params.table;
+  if (!database || !table) {
+    reply.status(404).send({
+      statusCode: 404,
+      database: database,
+      table: table,
+      fields: null
+    });
+  }
   const query = `DESCRIBE ${database}.${table}`;
   console.log("query: ", query);
   const [queryResult,] = await connection.query(query);

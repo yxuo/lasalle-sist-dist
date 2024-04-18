@@ -83,7 +83,6 @@ async function getDbList() {
     }
 
     await getTableList();
-    await getTableItems();
 }
 
 async function getTableList() {
@@ -92,12 +91,13 @@ async function getTableList() {
     selectTable.innerHTML = '';
     const { result } = await (await fetch(`${url}/api/table/list/${selectDb.value}`)).json();
 
-    for (const table of result) {
+    for (const table of result || []) {
         const option = document.createElement('option');
         option.value = table;
         option.textContent = table;
         selectTable.appendChild(option);
     }
+    await getTableItems();
 }
 
 /**
@@ -137,8 +137,7 @@ async function getTableItems() {
     */
     const fields = response?.fields || [];
 
-    console.log(response)
-    console.log(fields)
+    console.log('STUCTURE HTML', response, fields)
 
     for (const field of fields) {
         const fieldSize = field.Type.match(/\d+/)?.[0] || 0;
