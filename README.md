@@ -1,5 +1,12 @@
 # Lasalle Sistemas Distribuídos
 
+## Como usar
+
+1. Inicie o seu mysql ou use via docker: `docker compose up -d`
+2. Verifique se as credenciais de conexào estão ok em [main.js](src/main.js)
+3. Instale os pacotes do Node: `npm install`
+4. Rode o servidor: `npm run start`
+
 ## Trabalho
 
 **COMPETÊNCIA A SER DESENVOLVIDA:** construir aplicações em Node.js manipulando banco de dados MySQL.

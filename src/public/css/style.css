@@ -64,13 +64,13 @@ body {
     gap: 0.5rem;
 }
 
-.key__box{
+.key__box {
     display: flex;
     align-items: center;
     gap: 0.5rem;
 }
 
-.label__box{
+.label__box {
     display: flex;
     align-items: center;
     gap: 1.5rem;
@@ -124,17 +124,49 @@ table {
     border-collapse: collapse;
 }
 
-th, td {
+th,
+td {
     padding-left: 4px;
     padding-right: 4px;
     padding-top: 2px;
     padding-bottom: 2px;
 }
 
-table, th, td{
+table,
+th,
+td {
     border: 1px solid;
 }
 
 .hidden {
     display: none;
+}
+
+#menu {
+    position: absolute;
+    top: 20px;
+}
+
+.button {
+    background-color: #1076c9;
+    /* Green */
+    border: none;
+    color: white;
+    padding: 5px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.button:hover {
+    background-color: #3c94db;
+}
+
+.button:active {
+    background-color: #215f8f;
+}
+
+.button:disabled {
+    background-color: #215f8faf;
 }

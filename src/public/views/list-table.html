@@ -10,6 +10,13 @@
 </head>
 
 <body>
+    <div id="menu">
+        <button class="button" id="btn-criar-banco">Criar banco</button>
+        <button class="button" id="btn-criar-tabela">Criar tabela</button>
+        <button class="button" id="btn-inserir-tabela">Inserir registro</button>
+        <button class="button" id="btn-ver-tabela" disabled>Ver tabela</button>
+    </div>
+
     <main class="container">
         <h1>Listar Registro</h1>
         <div class="input__box">
@@ -26,6 +33,7 @@
         <table id="table-result"></table>
         <i id="no-results" class="hidden">Sem resultados</i>
     </main>
+    <script type="module" src="../controllers/menu.js"></script>
     <script type="module" src="../controllers/list-table.js"></script>
 </body>
 

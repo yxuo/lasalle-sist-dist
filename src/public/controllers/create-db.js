@@ -1,13 +1,13 @@
-const url = "http://localhost:3002"
+const url = "http://localhost:3002";
 async function criarBanco() {
   const nomeBancoInput = document.getElementById('nome-banco').value;
   const response = await fetch(`${url}/api/db/create/${nomeBancoInput}`);
   if (response.status === 200) {
-    alert('Banco de dados criado com sucesso!')
-    window.location.href = `${url}/create-table`
+    alert('Banco de dados criado com sucesso!');
+    window.location.href = `${url}/create-table`;
   }
   else {
-    alert('Banco de dados ja existe no sistema ❌')
+    alert('❌ Banco de dados já existe no sistema');
   }
 }
 

@@ -66,7 +66,7 @@ async function createTable() {
     if (response.ok) {
         alert(`Tabela criada com sucesso.`)
     } else {
-        alert(`Falha ao executar:\n${(await response.json()).message}`)
+        alert(`❌ Falha ao executar:\n${(await response.json()).message}`)
     }
 }
 
@@ -246,6 +246,6 @@ async function insertItem() {
     if (response.ok) {
         alert(`Registro inserido com sucesso.`)
     } else {
-        alert(`Falha ao executar:\n${(await response.json()).message}`)
+        alert(`❌ Falha ao executar:\n${(await response.json()).message}`)
     }
 }

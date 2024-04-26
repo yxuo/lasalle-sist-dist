@@ -10,6 +10,13 @@
 </head>
 
 <body>
+    <div id="menu">
+        <button class="button" id="btn-criar-banco">Criar banco</button>
+        <button class="button" id="btn-criar-tabela">Criar tabela</button>
+        <button class="button" id="btn-inserir-tabela" disabled>Inserir registro</button>
+        <button class="button" id="btn-ver-tabela">Ver tabela</button>
+    </div>
+
     <main class="container">
         <h1>Inserir Registro</h1>
         <div class="input__box">
@@ -24,24 +31,25 @@
         </div>
         <h3>Campos</h3>
         <div id="table-fields" class="input__box">
-        <p class="table-field-container">
-            <label for="field-1">Field 1</label> <br>
-            <input type="text" name="" id="field-1" class="input__search">
+            <p class="table-field-container">
+                <label for="field-1">Field 1</label> <br>
+                <input type="text" name="" id="field-1" class="input__search">
 
-            <input type="checkbox" id="insert-field-1" name="nulo" value="insert" checked>
-            <label for="insert-field-1">Inserir</label>
-            <input type="checkbox" id="null-field-1" name="inserir" value="null">
-            <label for="null-field-1">Nulo</label>
+                <input type="checkbox" id="insert-field-1" name="nulo" value="insert" checked>
+                <label for="insert-field-1">Inserir</label>
+                <input type="checkbox" id="null-field-1" name="inserir" value="null">
+                <label for="null-field-1">Nulo</label>
 
-        </p>
-        <p class="table-field-container">
-            <label for="field-2">Field 2</label> <br>
-            <input type="numebr" name="" id="field-" class="input__search">
+            </p>
+            <p class="table-field-container">
+                <label for="field-2">Field 2</label> <br>
+                <input type="numebr" name="" id="field-" class="input__search">
 
-        </p>
+            </p>
         </div>
         <button id="inserir-registro-btn">Inserir</button>
     </main>
+    <script type="module" src="../controllers/menu.js"></script>
     <script type="module" src="../controllers/insert-table.js"></script>
 </body>
 

@@ -6,10 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../css/style.css">
-    
+
 </head>
 
 <body>
+    <div id="menu">
+        <button class="button" id="btn-criar-banco" disabled>Criar banco</button>
+        <button class="button" id="btn-criar-tabela">Criar tabela</button>
+        <button class="button" id="btn-inserir-tabela">Inserir registro</button>
+        <button class="button" id="btn-ver-tabela">Ver tabela</button>
+    </div>
+
     <main class="container">
         <h1>Criar Banco de dados</h1>
         <div class="input__box">
@@ -18,6 +25,7 @@
         </div>
         <button id="criar-banco-btn">Criar banco de dados</button>
     </main>
+    <script type="module" src="../controllers/menu.js"></script>
     <script type="module" src="../controllers/create-db.js"></script>
 </body>
 

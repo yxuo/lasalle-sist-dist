@@ -148,7 +148,7 @@ async function insertItem() {
     if (response.ok) {
         alert(`Registro inserido com sucesso.`)
     } else {
-        alert(`Falha ao executar:\n${(await response.json()).message}`)
+        alert(`❌ Falha ao executar:\n${(await response.json()).message}`)
     }
 }
 

@@ -10,6 +10,13 @@
 </head>
 
 <body>
+    <div id="menu">
+        <button class="button" id="btn-criar-banco">Criar banco</button>
+        <button class="button" id="btn-criar-tabela" disabled>Criar tabela</button>
+        <button class="button" id="btn-inserir-tabela">Inserir registro</button>
+        <button class="button" id="btn-ver-tabela">Ver tabela</button>
+    </div>
+
     <main class="container">
         <h1>Criação de Tabelas</h1>
         <div class="input__box">
@@ -29,6 +36,7 @@
         <div class="input__table" id="estrutura-dinamica"></div>
         <button id="criar-tabela-btn">Criar Tabela</button>
     </main>
+    <script type="module" src="../controllers/menu.js"></script>
     <script type="module" src="../controllers/create-table.js"></script>
 </body>
 
