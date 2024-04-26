@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     inputCampos.min = 0;
     await getDbList();
     const estruturaDinamica = document.getElementById('estrutura-dinamica');
-    const arrayTipos = ["INT", "VARCHAR"];
+    const arrayTipos = ["INT", "VARCHAR", "TINYTEXT"];
     const createTableBtn = document.getElementById('criar-tabela-btn');
     createTableBtn.addEventListener('click', async () => await createTable())
     inputCampos.addEventListener('change', async () => {
@@ -67,6 +67,19 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const fieldSize = document.createElement('input');
                 fieldSize.type = 'number';
                 fieldSize.min = 0;
+                fieldSize.value = 1;
+
+                selectTypes.addEventListener('change', (e) => {
+                    if (e.target.value === 'TINYTEXT') {
+                        fieldSize.disabled = true;
+                        fieldSize.value = '';
+                    } else {
+                        fieldSize.disabled = false;
+                        if (!fieldSize.value && e.target.value === 'VARCHAR') {
+                            fieldSize.value = 1;
+                        }
+                    }
+                });
 
                 divBox.appendChild(labelBox);
                 divBox.appendChild(isPk);
@@ -114,17 +127,38 @@ async function createTable() {
         fields.push({
             isPrimaryKey: fieldInput.querySelector('[type="radio"]').checked,
             nome: fieldInput.querySelector('.input__search').value,
-            size: Number(fieldInput.querySelector('[type="number"]').value) || 0,
+            size: Number(fieldInput.querySelector('[type="number"]')?.value) || 0,
             type: fieldInput.querySelector('[name="types"]').value,
         });
     }
     const bancoDados = document.getElementById('banco-dados').value;
     const nomeTabela = document.getElementById('nome-table').value;
 
+    // Validação
+    if (!bancoDados) {
+        alert(`⚠️ Selecione um banco de dados`);
+        return;
+    }
+    if (!nomeTabela) {
+        alert(`⚠️ Insira o nome da tabela`);
+        return;
+    }
+    if (fields.some(i => i.type === 'VARCHAR' && !i.size)) {
+        alert(`⚠️ campos VARCHAR devem ter tamanho > 0`);
+        return;
+    }
+    if (!fields.some(i => i.isPrimaryKey)) {
+        alert(`⚠️ Selecione alguma chave primária`);
+        return;
+    }
+    if (fields.some(i => !i.nome)) {
+        alert(`⚠️ Preencha o nome dos campos`);
+        return;
+    }
+
     const body = {
         fields: fields,
     }
-    console.log('BODY', body)
     const response = await fetch(`${url}/api/table/create/${bancoDados}/${nomeTabela}`, {
         method: 'POST',
         body: JSON.stringify(body)

@@ -106,7 +106,7 @@ fastify.get('/api/db/list', async (request, reply) => {
   const lista = queryResult.reduce((l, i) => [...l, i.Database], []);
   reply.code(200).send({
     databases: lista,
-    columnTypes: ['INT', 'VARCHAR']
+    columnTypes: ['INT', 'VARCHAR', 'TINYTEXT']
   })
 });
 
